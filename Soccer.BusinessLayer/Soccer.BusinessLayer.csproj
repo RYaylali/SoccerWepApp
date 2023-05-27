@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="7.0.1" />
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Soccer.DataAccessLayer\Soccer.DataAccessLayer.csproj" />
     <ProjectReference Include="..\Soccer.EntityLayer\Soccer.EntityLayer.csproj" />
   </ItemGroup>

@@ -1,0 +1,48 @@
+﻿@model List<ResultPlayerDto>
+
+@{
+    ViewData["Title"] = "PlayerList";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+<table class="table table-bordered">
+    <tr>
+        <th>Adı</th>
+        <th>Soyadı</th>
+        <th>Yaş</th>
+        <th>Takım</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr id="playerRow_@item.PlayerID">
+            <td>@item.Name</td>
+            <td>@item.Surname</td>
+            <td>@item.Age</td>
+            <td>@item.TeamName</td>
+            <td><button class="btn btn-danger" onclick="deletePlayer('@item.PlayerID')">Sil</button></td>
+            <td><a href="/Player/UpdatePlayer/@item.PlayerID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+
+    }
+</table>
+<a href="/Player/CreatePlayer" class="btn btn-info"> Yeni Futbolcu Ekle</a>
+<script>
+    function deletePlayer(playerId) {
+        if (confirm("Bu oyuncuyu silmek istediğinize emin misiniz?")) {
+            $.ajax({
+                url: '/Player/DeletePlayer/' + playerId,
+                type: 'DELETE',
+                success: function () {
+                    // Örneğin, tabloyu yenilemek veya sadece silinen takımı kaldırmak için:
+                    $('#playerRow_' + playerId).remove(); // Silinen takımın satırını kaldırma
+                },
+                error: function () {
+                    alert('Oyuncu silinirken bir hata oluştu.');
+                }
+            });
+        }
+    }
+
+</script>
+

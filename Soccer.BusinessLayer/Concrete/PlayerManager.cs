@@ -24,7 +24,7 @@ namespace Soccer.BusinessLayer.Concrete
             _playerDal.Delete(entity);
         }
 
-        public Player TGetByID(int id)
+        public Player TGetByID(Guid id)
         {
             return _playerDal.GetByID(id);
         }

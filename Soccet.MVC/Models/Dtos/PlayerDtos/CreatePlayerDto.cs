@@ -2,6 +2,7 @@
 {
     public class CreatePlayerDto
     {
+        public Guid PlayerID { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public int Age { get; set; }

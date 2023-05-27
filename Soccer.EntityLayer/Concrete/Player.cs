@@ -14,7 +14,7 @@ namespace Soccer.EntityLayer.Concrete
         public string Surname { get; set; }
         public int Age { get; set; }
         //tABLO BAĞLATISI
-        public Guid TeamID { get; set; }
-        public Team Team { get; set; }
+        public Guid? TeamID { get; set; }
+        public Team? Team { get; set; }
     }
 }

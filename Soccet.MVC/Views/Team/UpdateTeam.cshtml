@@ -1,0 +1,21 @@
+﻿@model UpdateTeamDTO
+
+@{
+    ViewData["Title"] = "UpdateTeam";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<form method="post" enctype="multipart/form-data" >
+
+    <input type="hidden" asp-for="TeamID" />
+    <label>Takım Adı</label>
+    <input type="text" asp-for="TeamName" class="form-control" />
+    <br />
+
+    <label>Logo</label>
+    <input id="upload" type="file" class="form-control border-0" asp-for="LogoFile">
+    <br />
+
+    <button class="btn btn-primary">Takım Güncelle</button>
+</form>
+

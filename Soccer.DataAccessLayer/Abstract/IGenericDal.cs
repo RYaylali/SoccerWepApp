@@ -12,6 +12,6 @@ namespace Soccer.DataAccessLayer.Abstract
         void Update(T entity);
         void Delete(T entity);
         List<T> GetList();
-        T GetByID(int id);
+        T GetByID(Guid id);
     }
 }

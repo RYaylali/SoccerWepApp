@@ -1,8 +1,46 @@
-﻿
+﻿@model List<ResultTeamDto>
 @{
-    ViewData["Title"] = "TeamList";
-    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
 }
+<table class="table table-bordered">
+	<tr>
+		<th>Takım Adı</th>
+		<th>Logo</th>
+		<th>Sil</th>
+		<th>Güncelle</th>
+		<th>Detaylar</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr id="teamRow_@item.TeamID">
+			<td>@item.TeamName</td>
+			<td>
+				<img src="@item.LogoUrl" style="height: 100px; " alt="...">
+			</td>
+			<td><button class="btn btn-danger" onclick="deleteTeam('@item.TeamID')">Sil</button></td>
+			<td><a href="/Team/UpdateTeam/@item.TeamID" class="btn btn-success">Güncelle</a></td>
+		</tr>
 
-<h1>TeamList</h1>
+	}
+</table>
+<a href="/Team/CreateTeam" class="btn btn-info"> Yeni Takım Ekle</a>
+<script>
+	function deleteTeam(teamId) {
+		if (confirm("Bu takımı silmek istediğinize emin misiniz?")) {
+			$.ajax({
+				url: '/Team/DeleteTeam/' + teamId,
+				type: 'DELETE',
+				success: function () {
+					// Örneğin, tabloyu yenilemek veya sadece silinen takımı kaldırmak için:
+					$('#teamRow_' + teamId).remove(); // Silinen takımın satırını kaldırma
+				},
+				error: function () {
+					alert('Takım silinirken bir hata oluştu.');
+				}
+			});
+		}
+	}
+
+</script>
 

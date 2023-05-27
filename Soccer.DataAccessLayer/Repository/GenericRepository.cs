@@ -1,4 +1,5 @@
-﻿using Soccer.DataAccessLayer.Abstract;
+﻿using Microsoft.EntityFrameworkCore;
+using Soccer.DataAccessLayer.Abstract;
 using Soccer.DataAccessLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace Soccer.DataAccessLayer.Repository
             _context.SaveChanges();
         }
 
-        public T GetByID(int id)
+        public T GetByID(Guid id)
         {
             return _context.Set<T>().Find(id);
         }

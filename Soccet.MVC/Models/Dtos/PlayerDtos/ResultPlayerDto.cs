@@ -1,4 +1,6 @@
-﻿namespace Soccet.MVC.Models.Dtos.PlayerDtos
+﻿using Soccer.EntityLayer.Concrete;
+
+namespace Soccet.MVC.Models.Dtos.PlayerDtos
 {
     public class ResultPlayerDto
     {
@@ -7,7 +9,8 @@
         public string Surname { get; set; }
         public int Age { get; set; }
         //tABLO BAĞLATISI
-        public Guid TeamID { get; set; }
+        public Guid? TeamID { get; set; }
+        public string? TeamName { get; set; }
 
     }
 }

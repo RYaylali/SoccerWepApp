@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Soccer.BusinessLayer.Concrete
 {
@@ -23,7 +24,7 @@ namespace Soccer.BusinessLayer.Concrete
             _teamDal.Delete(entity);
         }
 
-        public Team TGetByID(int id)
+        public Team TGetByID(Guid id)
         {
             return _teamDal.GetByID(id);
         }

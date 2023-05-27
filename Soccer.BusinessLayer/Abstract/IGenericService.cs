@@ -12,6 +12,6 @@ namespace Soccer.BusinessLayer.Abstract
         void TUpdate(T entity);
         void TDelete(T entity);
         List<T> TGetList();
-        T TGetByID(int id);
+        T TGetByID(Guid id);
     }
 }

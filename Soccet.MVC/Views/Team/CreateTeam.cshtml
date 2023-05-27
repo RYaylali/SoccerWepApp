@@ -1,0 +1,17 @@
+﻿@model CreateTeamDto
+@{
+    ViewData["Title"] = "CreateTeam";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+<form method="post" enctype="multipart/form-data">
+    <label>Takım Adı</label>
+    <input type="text" asp-for="TeamName" class="form-control" />
+    <br />
+
+    <label>Logo</label> 
+    <input id="upload" type="file" class="form-control border-0" asp-for="LogoFile">
+    <br />
+
+    <button class="btn btn-primary">Takım Ekle</button>
+</form>
+
